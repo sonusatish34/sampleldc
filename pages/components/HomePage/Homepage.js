@@ -43,12 +43,12 @@ export default function Homepage({ data }) {
   return (
     <div className="bg-blue-200  min-h-screen overflow-hidden" >
 
-      <div className=' w-full' style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className=' bg-cover md:h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
         <header className="py-3 px-6 bg-blue-500 mx-3 rounded-b-md">
           <HamburgerMenu />
         </header>
 
-        <div>
+        <div className='md:text-left mt-40'>
           {/* <h2 className='mt-7 p-5 font-bold text-lg underline'>Trusted Dealer, Rental</h2> */}
 
           <h2 className="px-5 font-bold text-5xl" data-wow-delay="50ms" data-wow-duration="200ms">
@@ -113,7 +113,7 @@ export default function Homepage({ data }) {
                   </div>
 
                   <div className='flex justify-around'>
-                    <button classNam='p-2 flex justify-center text-green-500 items-center gap-1'>
+                    <button className='p-2 flex justify-center text-green-500 items-center gap-1'>
                       <Image
                         src={whatsapp}
                         alt="Car"
@@ -125,7 +125,7 @@ export default function Homepage({ data }) {
                       />
                     </button>
                     <div>
-                      <button classNae='p-2 flex justify-center text-blue-500 items-center gap-1'>
+                      <button className='p-2 flex justify-center text-blue-500 items-center gap-1'>
                         <Image
                           src={phone}
                           alt="Car"
@@ -134,7 +134,7 @@ export default function Homepage({ data }) {
                           width={100}
                           height={100}
                           sizes='11px'
-                          classNae="rounded-t-lg"
+                          className="rounded-t-lg"
                         />
                       </button>
                     </div>

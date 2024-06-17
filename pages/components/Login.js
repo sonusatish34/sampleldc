@@ -8,7 +8,7 @@ function Login() {
           .then(data => setData(data))
           .catch(error => console.error(error));
       }, []);
-      console.log(data,"daya");
+    //   console.log(data,"daya");
     return (
         <div>
 

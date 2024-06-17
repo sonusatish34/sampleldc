@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import Login from "./components/Login";
 // import Home from "./components/Homepage";
 import Homepage from "./components/HomePage/Homepage";
 // import Dashboard from "./components/Dashboard";
-import II from "./components/II";
+// import II from "./components/II";
 import Carousal from "./components/ReviewCarousal/Carousal";
 import Feech from "./Feech";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({items,cars}) {
-  console.log(cars,"carrrr");
+  // console.log(cars,"carrrr");
   return (
   <div className="text-center items-center">
   {/* hi */}  
