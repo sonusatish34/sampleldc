@@ -16,7 +16,7 @@ export default function Home({items,cars}) {
   <div className="text-center items-center">
   {/* hi */}  
   {/* <Login/> */}
-  <Homepage/>
+  <Homepage data={cars}/>
   {/* <Dashboard/> */}
   {/* <Carousal/> */}
   {/* <II/> */}
@@ -26,14 +26,14 @@ export default function Home({items,cars}) {
    
   );  
 }
-// export async function getStaticProps() {
-//   const response = await fetch('https://longdrivecarz.in/site/cars-info?location=Hyderabad');
-//   const items = await response.json();
-//   const cars = items?.data?.results
-//   return {
-//     props: {
-//       items,
-//       cars
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const response = await fetch('https://longdrivecarz.in/site/cars-info?location=Hyderabad');
+  const items = await response.json();
+  const cars = items?.data?.results
+  return {
+    props: {
+      items,
+      cars
+    },
+  };
+}

@@ -8,19 +8,18 @@ const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex items-center  justify-between">
+    <div className="flex items-center justify-between">
       <div>
         <Image
-          className='rounded-full p-1 h-24'
+          className=' w-10 h-10'
           src={logo}
           alt="carrr"
-          width={100}
-          height={100}
+         
         />
       </div>
       <div>
         <button
-          className="block lg:hidden absolute right-5 top-8"
+          className="block lg:hidden absolute right-5 top-4"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
