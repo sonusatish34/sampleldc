@@ -1,0 +1,7 @@
+.accItem button {
+    /* background-color: yellow; */
+    justify-content: space-between;
+}
+.addBag {
+    background-color: blue;
+}
