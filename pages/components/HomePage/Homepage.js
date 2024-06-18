@@ -7,7 +7,7 @@ import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import Link from 'next/link';
 import { TiArrowRightOutline } from "react-icons/ti";
 import FaqAccordian from '../FaqAccordian/FaqAccordian'
-import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaSearch } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaSearch, FaYoutube } from 'react-icons/fa';
 import { LuPhoneCall } from 'react-icons/lu';
 
 // import logo from '../images/logocar.jpg';
@@ -198,7 +198,7 @@ export default function Homepage({ data }) {
 
           </div>
         </div>
-        <div className='text-left bg-gray-900 mt-4 p-4'>
+        <div className='text-left mt-4 p-4'>
           <div>
             <h2 className='font-bold text-lg py-2 underline'>Our Branches</h2>
             <ul>
@@ -226,14 +226,22 @@ export default function Homepage({ data }) {
           </div>
           <div>
             <h2 className='font-bold text-lg py-2 underline'>Social media links</h2>
-            <ul>
-              <li><Link href={'/'}>Blog</Link></li>
-              <li><Link href={'/'}>Contact us</Link></li>
+            <ul className='flex items-start py- gap-3'>
+              {/* <li><h1 className=''>@longdrivecars</h1></li> */}
+              <li className='text-blue-400'><FaFacebook size={20} /></li>
+              <li className='text-blue-400'><FaInstagram size={20}/></li>
+              <li className='text-blue-400'><FaTwitter size={20}/></li>
+              <li className='text-blue-400'><FaYoutube size={20}/></li>
+
             </ul>
           </div>
         </div>
 
       </footer>
+      <p className='bg-gray-700'>© Long Drive Cars All Rights Reserved.</p>
+      <a href="https://api.whatsapp.com/send?phone=1234567890" target='_blank'>Contact Us on WhatsApp</a>
+
     </div>
   );
 }
+// import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaSearch } from 'react-icons/fa';

@@ -21,7 +21,7 @@ export default function Home({items,cars}) {
   {/* <Carousal/> */}
   {/* <II/> */}
   {/* <Feech data={items}/> */}
-  <h1>Homeeepage</h1>
+  
   </div>
    
   );  

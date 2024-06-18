@@ -89,13 +89,7 @@ export default function Carousal() {
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <div className="">
-          {/* <div className="rounded-full">Helllooo</div> */}
-          
-
-
-
-          {/* <Rating value={5} readOnly cancel={false} /> */}
+        <div className="">          
 
           <Image
             src={person}
@@ -109,24 +103,24 @@ export default function Carousal() {
             <AiFillStar
               className='star'
               color={"#ffc107"}
-              size={25}
+              size={20}
             />
             <AiFillStar
               className='star'
               color={"#ffc107"}
-              size={25} />
+              size={20} />
             <AiFillStar
               className='star'
               color={"#ffc107"}
-              size={25} />
+              size={20} />
             <AiFillStar
               className='star'
               color={"#ffc107"}
-              size={25} />
+              size={20} />
             <AiFillStar
               className='star'
               color={"#ffc107"}
-              size={25} />
+              size={20} />
           </div>
           <h2 className="p-1">Harish Kumar</h2>
           <p className="p-2">
@@ -143,6 +137,29 @@ export default function Carousal() {
             width={150}
             className="h-20 mx-auto object-cover rounded-full w-20"
           />
+          <div className="flex justify-center">
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20}
+            />
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20} />
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20} />
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20} />
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20} />
+          </div>
           <h2 className="p-1">Harish Kumar</h2>
           <p className="p-2">
             Booked a XUV with unlimited kms, very happy with longdrivecar's service
@@ -158,6 +175,29 @@ export default function Carousal() {
             width={150}
             className="h-20 mx-auto object-cover rounded-full w-20"
           />
+          <div className="flex justify-center">
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20}
+            />
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20} />
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20} />
+            <AiFillStar
+              className='star'
+              color={"#ffc107"}
+              size={20} />
+            <AiFillStar
+              className='star'
+              color={"#fff"}
+              size={20} />
+          </div>
           <h2 className="p-1">Harish Kumar</h2>
           <p className="p-2">
             Booked a XUV with unlimited kms, very happy with longdrivecar's service
