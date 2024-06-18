@@ -112,8 +112,10 @@ export default function Homepage({ data }) {
                   </div>
 
                   <div className='flex justify-around py-2'>
+                 
+
                     <button className='w-16 h-12  flex justify-center text-green-500 items-center gap-1'>
-                      <Image
+                    <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'><Image
                         src={whatsapp}
                         alt="Car"
                         // layout="fill"
@@ -121,7 +123,7 @@ export default function Homepage({ data }) {
                         // width={100}
                         height={150}
                         className="rounded-t-lg object-contain max-w-none"
-                      />
+                      /></Link>
                     </button>
                     <div>
                       <button className=' w-16 h-12 flex justify-center text-blue-500 items-center gap-1'>
@@ -239,7 +241,6 @@ export default function Homepage({ data }) {
 
       </footer>
       <p className='bg-gray-700'>© Long Drive Cars All Rights Reserved.</p>
-      <a href="https://api.whatsapp.com/send?phone=1234567890" target='_blank'>Contact Us on WhatsApp</a>
 
     </div>
   );
