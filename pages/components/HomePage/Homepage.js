@@ -48,7 +48,7 @@ export default function Homepage({ data }) {
           <HamburgerMenu />
           <input
             placeholder='Search for the cars'
-            className='text-red-500 border border-red-500 rounded-sm relative bottom-7 bg-blue-100'
+            className='text-red-500 border border-red-500 rounded-sm relative bottom-8 left-1 w-40 bg-blue-100'
             type='search'
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
@@ -70,13 +70,6 @@ export default function Homepage({ data }) {
       <div>
         <div className='text-center mt-9 py-7'>
           <h2 className="p-3 font-bold text-4xl text-black">Explore all Vehicles</h2>
-          {/* <input
-            placeholder='Search for the cars'
-            className='w-80 text-red-500 p-1 border border-red-500 rounded-md'
-            type='search'
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-          /> */}
         </div>
 
         <div className="container mx-auto">
