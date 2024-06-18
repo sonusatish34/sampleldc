@@ -44,15 +44,9 @@ export default function Homepage({ data }) {
     <div className="bg-blue-200  min-h-screen overflow-hidden" >
 
       <div className=' bg-cover md:h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <header className="py-3 px-6 bg-blue-500 mx-3 rounded-b-md">
+        <header className="py-3 px-6 bg-black mx-3 rounded-b-md">
           <HamburgerMenu />
-          <input
-            placeholder='Search for the cars'
-            className='text-red-500 border border-red-500 rounded-sm relative bottom-8 left-1 w-40 bg-blue-100'
-            type='search'
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-          />
+
         </header>
 
         <div className='p-2 text-left mt-10'>
@@ -68,10 +62,22 @@ export default function Homepage({ data }) {
       </div>
 
       <div>
-        <div className='text-center mt-9 py-7'>
-          <h2 className="p-3 font-bold text-4xl text-black">Explore all Vehicles</h2>
+        <div className='text-center mt-9 p-2'>
+          <h2 className="px-3 font-bold text-4xl text-black">Explore all Vehicles</h2>
         </div>
-
+        <div className='mb-3'>
+          {/* <label>jo<FaSearch/></label> */}
+          <FaSearch className='text-red-500 relative left-64 top-6'/>
+          <input
+            placeholder='Search for the cars'
+            className='placeholder-red-300 text-black px-4 py-1 rounded-full bg-gradient-to-r from-blue-700'
+            type='search'
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
+          
+        </div>
+      
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-3 gap-8">
             {displayedItems?.map((item, index) => (
@@ -112,10 +118,10 @@ export default function Homepage({ data }) {
                   </div>
 
                   <div className='flex justify-around py-2'>
-                 
+
 
                     <button className='w-16 h-12  flex justify-center text-green-500 items-center gap-1'>
-                    <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'><Image
+                      <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'><Image
                         src={whatsapp}
                         alt="Car"
                         // layout="fill"
@@ -231,9 +237,9 @@ export default function Homepage({ data }) {
             <ul className='flex items-start py- gap-3'>
               {/* <li><h1 className=''>@longdrivecars</h1></li> */}
               <li className='text-blue-400'><FaFacebook size={20} /></li>
-              <li className='text-blue-400'><FaInstagram size={20}/></li>
-              <li className='text-blue-400'><FaTwitter size={20}/></li>
-              <li className='text-blue-400'><FaYoutube size={20}/></li>
+              <li className='text-blue-400'><FaInstagram size={20} /></li>
+              <li className='text-blue-400'><FaTwitter size={20} /></li>
+              <li className='text-blue-400'><FaYoutube size={20} /></li>
 
             </ul>
           </div>
