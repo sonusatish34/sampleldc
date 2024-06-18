@@ -7,7 +7,7 @@ import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import Link from 'next/link';
 import { TiArrowRightOutline } from "react-icons/ti";
 import FaqAccordian from '../FaqAccordian/FaqAccordian'
-import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaSearch } from 'react-icons/fa';
 import { LuPhoneCall } from 'react-icons/lu';
 
 // import logo from '../images/logocar.jpg';
@@ -23,7 +23,7 @@ export default function Homepage({ data }) {
   // console.log(data, "hhh");
   // const [imageCache, setImageCache] = useState({});
   const [page, setPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
 
   const backgroundImage = 'https://images.pexels.com/photos/9796251/pexels-photo-9796251.jpeg?auto=compress&cs=tinysrgb&w=600';
   const [searchQuery, setSearchQuery] = useState('');
@@ -46,30 +46,37 @@ export default function Homepage({ data }) {
       <div className=' bg-cover md:h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
         <header className="py-3 px-6 bg-blue-500 mx-3 rounded-b-md">
           <HamburgerMenu />
+          <input
+            placeholder='Search for the cars'
+            className='text-red-500 border border-red-500 rounded-sm relative bottom-7 bg-blue-100'
+            type='search'
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
         </header>
 
-        <div className='md:text-left mt-40'>
+        <div className='p-2 text-left mt-10'>
           {/* <h2 className='mt-7 p-5 font-bold text-lg underline'>Trusted Dealer, Rental</h2> */}
 
-          <h2 className="px-5 font-bold text-5xl" data-wow-delay="50ms" data-wow-duration="200ms">
-            Luxury and addordable Car Collection..</h2>
-          <p className="p-5 font-semibold text-l" data-wow-delay="300ms" data-wow-duration="2000ms">
+          <h2 className="px-1 font-bold text-3xl" data-wow-delay="50ms" data-wow-duration="200ms">
+            Luxury and affordable Car Collection..</h2>
+          <p className="p-1 font-semibold text-l" data-wow-delay="300ms" data-wow-duration="2000ms">
             Car is where early adopters and innovation seekers find lively
             imaginative tech before it hits the mainstream.</p>
-          <button className='ml-5 rounded-sm p-2 mb-52 bg-red-700'>Go to Listing</button>
+          <button className='my-2 rounded-sm p-1 mb-52 bg-red-700'>Go to Listing</button>
         </div>
       </div>
 
       <div>
         <div className='text-center mt-9 py-7'>
           <h2 className="p-3 font-bold text-4xl text-black">Explore all Vehicles</h2>
-          <input
+          {/* <input
             placeholder='Search for the cars'
             className='w-80 text-red-500 p-1 border border-red-500 rounded-md'
             type='search'
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-          />
+          /> */}
         </div>
 
         <div className="container mx-auto">
@@ -77,7 +84,7 @@ export default function Homepage({ data }) {
             {displayedItems?.map((item, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden m-2">
                 <div>
-                  <button className='rounded-sm px-4 py-1 lg:relative bg-red-500 absolute right-4 mt-2 z-10'>{item.manufacture_date}2023</button>
+                  <button className='rounded-sm px-4 py-1 lg:relative bg-red-500 absolute right-4 mt-2 z-10'>{item.manufacture_date}</button>
                 </div>
                 <div className="relative w-full h-72 border-blue-200">
                   <Image
@@ -90,7 +97,6 @@ export default function Homepage({ data }) {
                 </div>
                 <div className="p-4">
                   <div className='flex items-baseline justify-between text-xl font-semibold'>
-                    <Link href="/dashboard">Dashboard</Link>
                     <Link href={`/${item.maker_model}`}>
                       <p className="text-xl font-semibold text-gray-800 mb-2">{item.maker_model}</p>
                     </Link>
@@ -112,29 +118,29 @@ export default function Homepage({ data }) {
                     </div>
                   </div>
 
-                  <div className='flex justify-around'>
-                    <button className='p-2 flex justify-center text-green-500 items-center gap-1'>
+                  <div className='flex justify-around py-2'>
+                    <button className='w-16 h-12  flex justify-center text-green-500 items-center gap-1'>
                       <Image
                         src={whatsapp}
                         alt="Car"
                         // layout="fill"
                         // objectFit="contain"
-                        width={100}
-                        height={50}
-                        className="rounded-t-lg object-contain"
+                        // width={100}
+                        height={150}
+                        className="rounded-t-lg object-contain max-w-none"
                       />
                     </button>
                     <div>
-                      <button className='p-2 flex justify-center text-blue-500 items-center gap-1'>
+                      <button className=' w-16 h-12 flex justify-center text-blue-500 items-center gap-1'>
                         <Image
                           src={phone}
                           alt="Car"
                           // layout="fill"
                           objectFit="contain"
-                          width={100}
-                          height={100}
+                          // width={100}
+                          height={150}
                           sizes='11px'
-                          className="rounded-t-lg"
+                          className="rounded-t-lg object-contain max-w-none"
                         />
                       </button>
                     </div>
@@ -181,7 +187,7 @@ export default function Homepage({ data }) {
 
         <div>
           <h2 className='text-left p-6 text-lg font-bold'>Booking help lines</h2>
-          <div className='flex text-left gap-2 p-6 justify-center'>
+          <div className='flex text-left pl-5 gap-2'>
             <div className='flex items-center justify-center'>
               <LuPhoneCall size={40} />
               <ul className='ml-2'>

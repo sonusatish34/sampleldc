@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../images/newlog.png'
+import { LuPhoneCall } from 'react-icons/lu';
+
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,12 +16,12 @@ const HamburgerMenu = () => {
           className=' w-10 h-10'
           src={logo}
           alt="carrr"
-         
+
         />
       </div>
       <div>
         <button
-          className="block lg:hidden absolute right-5 top-4"
+          className="block lg:hidden absolute right-10 top-5"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -37,21 +39,38 @@ const HamburgerMenu = () => {
         </button>
       </div>
 
-      <nav className={`${isOpen ? 'block overflow-auto ' : 'overflow-hidden '} text-red-600 w-2/3 absolute top-0 left-0 h-full z-10 transition-transform  delay-4000  ease-out bg-opacity-95 bg-blue-400`} style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}>
-      
+      <nav className={`${isOpen ? 'block overflow-auto ' : 'overflow-hidden '}  w-2/3 absolute top-0 left-0 h-full z-10 transition-transform  delay-4000  ease-out bg-opacity-95 bg-blue-400`} style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}>
+
         <Image
-          className='rounded-full p-1 ml-3 h-32'
+          className='w-16 h-16 ml-9 mt-3'
           src={logo}
           alt="carrr"
           width={129}
           height={300}
         />
-        <ul className='ml-4 mt-5 text-black pl-5 pt-4 font-semibold flex flex-col gap-1 bg-s items-start'>
-          <li><Link href={''}>Home</Link></li>
-          <li><Link href={''}>Contact</Link></li>
-          <li><Link href={''}>Blog</Link></li>
-          <li><Link href={''}>Reviews</Link></li>
+        <ul className='ml-4 mt-5 text-black pl-5 pt-4 font-semibold flex flex-col gap-3 bg-s items-start'>
+          <li className='border border-b-black w-32 text-start'><Link href={''}>Home</Link></li>
+          <li className='border border-b-black w-32 text-start'><Link href={''}>Contact</Link></li>
+          <li className='border border-b-black w-32 text-start'><Link href={''}>Blog</Link></li>
+          <li className='border border-b-black w-32 text-start'><Link href={''}>Reviews</Link></li>
         </ul>
+        <div className='flex flex-col text-left gap-2 p-6 justify-center mt-36 text-black'>
+          <div className='flex items-center'>
+            <LuPhoneCall size={40} />
+            <ul className='ml-2'>
+              <li>Telangana, AP</li>
+              <li>9000-0008</li>
+            </ul>
+          </div>
+          <div className='flex items-center'>
+            <LuPhoneCall size={40} />
+            <ul className='ml-2'>
+              <li>Bangalore</li>
+              <li>9000-000908</li>
+            </ul>
+          </div>
+
+        </div>
       </nav>
 
       {/* <button className='text-orange-500 mx-8' onClick={()=>{
