@@ -58,17 +58,17 @@ const CarDetails = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className='bg-red-500 p-10'>
+    <div className='bg- p-10'>
       {/* la
       <div>{caritem?.maker_model}</div>
       <div>{caritem?.price_24_hours}</div> */}
       <div>
-        <h2>Mahindra thar</h2>
+        <h2 className='p-1'>Mahindra thar</h2>
         
-        <div className='bg-blue-300 h-48 w-44'>
+        <div className='bg-blue-300 h-48 w-44 rounded'>
 
         </div>
-        <h2>Descfiption</h2>
+        <h2 className='font-semibold p-1'>Description</h2>
         <p>
           
           In 2020, Mahindra introduced the second generation Thar, which was a completely redesigned version of the vehicle. The Thar 2020 has a new, more modern design that features a bold grille, LED headlights, and a hardtop roof. It is powered by either a 2.0-liter turbocharged gasoline engine or a 2.2-liter turbocharged diesel engine, both of which are mated to either a six-speed manual or a six-speed automatic transmission. The Thar 2020 also has updated suspension and drivetrain components, as well as a range of new features, such as a touchscreen infotainment system, a rearview camera, and an adventure statistics display. The Thar 2020 is available in two trim levels: the AX and the LX, with the latter being the more premium option.
