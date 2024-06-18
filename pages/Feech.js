@@ -8,7 +8,7 @@ export default function Feech({data}) {
     setLoading(false); 
   }, []);
   // console.log(cars,"ggggggg");
-  console.log(data,"iiiiiiiiiiiiii");
+  // console.log(data,"iiiiiiiiiiiiii");
 <h1>HIi im from fetch</h1>
   return (
 

@@ -52,7 +52,7 @@ export default function Homepage({ data }) {
           {/* <h2 className='mt-7 p-5 font-bold text-lg underline'>Trusted Dealer, Rental</h2> */}
 
           <h2 className="px-5 font-bold text-5xl" data-wow-delay="50ms" data-wow-duration="200ms">
-            Premium Car Collection..</h2>
+            Luxury and addordable Car Collection..</h2>
           <p className="p-5 font-semibold text-l" data-wow-delay="300ms" data-wow-duration="2000ms">
             Car is where early adopters and innovation seekers find lively
             imaginative tech before it hits the mainstream.</p>
