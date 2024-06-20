@@ -12,7 +12,7 @@ const HamburgerMenu = () => {
     <div>
       <mainhead >
         <div className='bg-orange-600 p-1 w-screen'>
-          <div class="flex space-x-6 animate-loop-scroll">
+          <div className="flex space-x-6 animate-loop-scroll">
             <span className='text-orange-600' >.......</span>
             <p>Zero Deposit </p>
             <p>Unlimited Kilometers</p>

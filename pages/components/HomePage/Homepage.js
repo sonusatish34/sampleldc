@@ -51,7 +51,7 @@ export default function Homepage({ data }) {
         </div>
         <div className='overflow-y-auto h-screen'>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {data.slice(0, visibleItems).map((item, index) => (
+            {data?.slice(0, visibleItems).map((item, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="relative w-full h-72">
                   <Image
