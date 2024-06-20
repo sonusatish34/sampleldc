@@ -88,12 +88,12 @@ const CarDetails = () => {
           </ul>
         </div>
 
-        <h2>Description</h2>
+        <h2 className='font-bold text-2xl border-l-2 border-red-900 mb-3' >Description</h2>
         <p className='font-light p-1 text-sm'>
           {customData[maker_model?.toLowerCase()]?.desc}
         </p>
 
-        <h2>Why Choose {customData[maker_model?.toLowerCase()]?.id} Self Drive Car Rental From Long Drive Cars</h2>
+        <h2 className='font-semibold text-xl'>Why Choose {customData[maker_model?.toLowerCase()]?.id} Self Drive Car Rental From Long Drive Cars</h2>
         <p className='font-light p-1 text-sm'>
           {customData[maker_model?.toLowerCase()]?.subdesc}
         </p>

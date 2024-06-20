@@ -20,7 +20,7 @@ const HamburgerMenu = () => {
         </div>
       </mainhead>
       <subhead >
-        <div className=' bg-gray-800 w-screen flex justify-between p-2 lg:text-2xl p-4 '>
+        <div className=' bg-gray-800 w-screen flex justify-between text-white text-xl p-2 '>
           <h2>For Booking Help</h2>
           <div className='flex items-center gap-1'>
             <h2><LuPhoneCall size={15} /></h2>
