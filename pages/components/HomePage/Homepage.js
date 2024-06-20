@@ -112,7 +112,7 @@ export default function Homepage({ data }) {
           </div>
         </div>
 
-        {visibleItems <= data.length && (
+        {visibleItems <= data?.length && (
           <div className="text-center mt-4 mb-4">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-full"
