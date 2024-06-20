@@ -1,7 +1,14 @@
-.accItem button {
-    /* background-color: yellow; */
-    justify-content: space-between;
-}
+
 .addBag {
     background-color: blue;
 }
+.accItem {
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+.accItem h2:hover {
+    background-color: lightblue;
+}
+ 

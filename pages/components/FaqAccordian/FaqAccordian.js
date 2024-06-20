@@ -8,11 +8,11 @@ export default function App() {
   // {styles.accItem `{${data-open}? 'addBag':'null'}`}
   return (
     <Accordion>
-      <AccordionItem className={`${styles.accItem} p-4 bg-stone-300`} key="1" aria-label="Accordion 1" title="1. What are the reqs for renting a car?">
-        <p>To rent a car from Long Drive Cars, you need to be at least 21 years old, have a valid driver's licence, and Aadhaar Card.</p>
+      <AccordionItem className={`${styles.accItem} p-2 bg-blue-100`} key="1" aria-label="Accordion 1" title="1. What are the reqs for renting a car?">
+        <p className="text-left">To rent a car from Long Drive Cars, you need to be at least 21 years old, have a valid driver's licence, and Aadhaar Card.</p>
       </AccordionItem>
-      <AccordionItem className={`${styles.accItem} p-4 bg-stone-300`} key="2" aria-label="Accordion 1" title="2. What Incase of any damage to the car ?">
-        <p>Incase of damage Rent Amount No Refund &
+      <AccordionItem className={`${styles.accItem} p-2 bg-blue-100`} key="2" aria-label="Accordion 1" title="2. What Incase of any damage to the car ?">
+        <p className="text-left">Incase of damage Rent Amount No Refund &
           No adjustment for another car booking
           For damage Upto 2 Lakhs
           No insurance will be applied
@@ -26,8 +26,8 @@ export default function App() {
           many times until the insurance process is completed
           .</p>
       </AccordionItem>
-      <AccordionItem className={`${styles.accItem} p-4 bg-stone-300`} key="3" aria-label="Accordion 1" title="3. What are the reqs for renting a car?">
-        <p>To rent a car from Long Drive Cars, you need to be at least 21 years old,
+      <AccordionItem className={`${styles.accItem} p-2 bg-blue-100`} key="3" aria-label="Accordion 1" title="3. What are the reqs for renting a car?">
+        <p className="text-left">To rent a car from Long Drive Cars, you need to be at least 21 years old,
           have a valid driver's licence, and Aadhaar Card.</p>
       </AccordionItem>
     </Accordion>

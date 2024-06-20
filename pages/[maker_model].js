@@ -4,82 +4,103 @@ import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { useEffect, useState } from 'react';
-// import car from '../pages/images/newlogo.png'
+import { ImPriceTags } from "react-icons/im";
+import customData from './components/kk.json';
+
 const CarDetails = () => {
+  const [caritem, setCarItem] = useState(null);
+  const [loading, setLoading] = useState(true); 
+  const router = useRouter();
+  const { maker_model } = router.query;
 
-  // const [caritem,setCarItem] = useState(null)
-  // const router = useRouter();
-  // const { maker_model } = router.query;
+  useEffect(() => {
+    async function fetchCarDetails() {
+      setLoading(true); 
 
-  // useEffect(() => {
-  //   async function fetchApi() {
-  //     const response = await fetch('https://longdrivecarz.in/site/cars-info?location=Hyderabad');
-  //     const items = await response.json();
-  //     const cars = items?.data?.results
-  //     // const car = 
-  //     const car = cars?.find(i => i.maker_model === maker_model);
-  //     setCarItem(car);
-  //     console.log(car,"carrrr");
+      try {
+        const response = await fetch('https://longdrivecarz.in/site/cars-info?location=Hyderabad');
+        const items = await response.json();
+        const cars = items?.data?.results;
+        const car = cars?.find(i => i?.maker_model.toLowerCase() === maker_model?.toLowerCase());
 
-  //   }
-  //   fetchApi()
-  // },[])
+        setCarItem(car);
+      } catch (error) {
+        console.error('Error fetching car details:', error);
+      } finally {
+        setLoading(false); // Set loading to false after fetching completes (whether success or error)
+      }
+    }
+
+    if (maker_model) {
+      fetchCarDetails();
+    }
+  }, [maker_model]);
 
   return (
-    // <div className="container mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-    //   <button onClick={() => router.back()} className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4">Back</button>
-    //   <div className="relative w-full h-72 border-blue-200">
-    //     <Image
-    //       src={selectedItem.photo_url}
-    //       alt="Car"
-    //       layout="fill"
-    //       objectFit="cover"
-    //       className="rounded-t-lg"
-    //     />
-    //   </div>
-    //   <div className="p-4">
-    //     <h2 className="text-2xl font-bold mb-2">{selectedItem.maker_model}</h2>
-    //     <div className='flex items-baseline justify-between text-xl font-semibold'>
-    //       <p className="text-blue-500 font-bold mb-3">₹{selectedItem.price_24_hours * 24}/day</p>
-    //     </div>
-    //     <div className="flex items-center justify-between border-b border-gray-300 pb-3 text-black font-normal text-base">
-    //       <div className="flex items-center">
-    //         <BsFuelPump className="mr-1 text-red-700" />
-    //         <span>{selectedItem.fuel_type}</span>
-    //       </div>
-    //       <div className="flex items-center">
-    //         <TbManualGearbox className="mr-1 text-blue-500" />
-    //         <span>{selectedItem.transmission_type}</span>
-    //       </div>
-    //       <div className="flex items-center">
-    //         <MdOutlineAirlineSeatReclineExtra className="mr-1" />
-    //         <span>{selectedItem.seater}</span>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className='bg- p-10'>
-      {/* la
-      <div>{caritem?.maker_model}</div>
-      <div>{caritem?.price_24_hours}</div> */}
+    <div className='bg-white p-3 text-black'>
       <div>
-        <h2 className='p-1'>Mahindra thar</h2>
+        <h2 className='p-1 font-medium text-xl'>{customData[maker_model?.toLowerCase()]?.id}</h2>
         
-        <div className='bg-blue-300 h-48 w-44 rounded'>
-
+        <div style={{ position: "relative", width: "100%", paddingBottom: "10%" }}>
+          {loading && <div>Loading...</div>} 
+          {!loading && (
+            <Image
+              className='relative w-48 rounded'
+              alt="Car Image"
+              src={caritem?.car_image_car_right_view}
+              width={100}
+              height={200}
+              objectFit="contain"
+              onLoad={() => setLoading(false)} 
+              onError={() => setLoading(false)} 
+            />
+          )}
         </div>
-        <h2 className='font-semibold p-1'>Description</h2>
-        <p>
-          
-          In 2020, Mahindra introduced the second generation Thar, which was a completely redesigned version of the vehicle. The Thar 2020 has a new, more modern design that features a bold grille, LED headlights, and a hardtop roof. It is powered by either a 2.0-liter turbocharged gasoline engine or a 2.2-liter turbocharged diesel engine, both of which are mated to either a six-speed manual or a six-speed automatic transmission. The Thar 2020 also has updated suspension and drivetrain components, as well as a range of new features, such as a touchscreen infotainment system, a rearview camera, and an adventure statistics display. The Thar 2020 is available in two trim levels: the AX and the LX, with the latter being the more premium option.
 
-          The Mahindra Thar has been well-received by both off-road enthusiasts and the general public in India. It has become a popular vehicle for adventure enthusiasts, as it is capable of handling some of the most challenging terrains in India.
+        <div className='overview'>
+          <h2 className='font-bold text-2xl border-l-2 border-red-900 mb-3'>Car Overview</h2>
+          <ul className='my-2 flex flex-col gap-2'>
+            <li className='flex items-center gap-8'>
+              <BsFuelPump size={20} className='text-blue-400' />
+              <p className='w-40 font-semibold text-lg'>Vehicle Color</p>
+              <p>{caritem?.vehicle_color}</p>
+            </li>
+            <li className='flex items-center gap-8'>
+              <MdOutlineAirlineSeatReclineExtra size={20} className='text-blue-400' />
+              <p className='w-40 font-semibold text-lg'>Seater</p>
+              <p>{caritem?.seater}</p>
+            </li>
+            <li className='flex items-center gap-8'>
+              <TbManualGearbox size={20} className='text-blue-400' />
+              <p className='w-40 font-semibold text-lg'>Transmission Type</p>
+              <p>{caritem?.transmission_type}</p>
+            </li>
+            <li className='flex items-center gap-8'>
+              <ImPriceTags size={20} className='text-blue-400' />
+              <p className='w-40 font-semibold text-lg'>Price Per Day</p>
+              <p>₹{caritem?.price_24_hours * 24}</p>
+            </li>
+            <li className='flex items-center gap-8'>
+              <BsFuelPump size={20} className='text-blue-400' />
+              <p className='w-40 font-semibold text-lg'>Fuel Type</p>
+              <p>{caritem?.fuel_type}</p>
+            </li>
+          </ul>
+        </div>
+
+        <h2>Description</h2>
+        <p className='font-light p-1 text-sm'>
+          {customData[maker_model?.toLowerCase()]?.desc}
+        </p>
+
+        <h2>Why Choose {customData[maker_model?.toLowerCase()]?.id} Self Drive Car Rental From Long Drive Cars</h2>
+        <p className='font-light p-1 text-sm'>
+          {customData[maker_model?.toLowerCase()]?.subdesc}
         </p>
       </div>
     </div>
   );
 };
 
-
-
 export default CarDetails;
+

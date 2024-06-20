@@ -5,7 +5,6 @@ import Login from "./components/Login";
 import Homepage from "./components/HomePage/Homepage";
 // import Dashboard from "./components/Dashboard";
 // import II from "./components/II";
-import Carousal from "./components/ReviewCarousal/Carousal";
 import Feech from "./Feech";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +17,6 @@ export default function Home({items,cars}) {
   {/* <Login/> */}
   <Homepage data={cars}/>
   {/* <Dashboard/> */}
-  {/* <Carousal/> */}
   {/* <II/> */}
   {/* <Feech data={items}/> */}
   

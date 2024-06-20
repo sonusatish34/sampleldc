@@ -1,91 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
-// import { LuPhoneCall } from 'react-icons/lu';
 import Link from 'next/link';
-import { TiArrowRightOutline } from "react-icons/ti";
-import FaqAccordian from '../FaqAccordian/FaqAccordian'
-import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaSearch, FaYoutube } from 'react-icons/fa';
-import { LuPhoneCall } from 'react-icons/lu';
-
-// import logo from '../images/logocar.jpg';
-import carphotot from '../../images/3.jpeg';
+import styles from './HomePage.module.css'
+import { FaSearch } from 'react-icons/fa';
+import carphotot from '../../images/9.jpeg';
 import whatsapp from '../../images/wsp.svg';
 import phone from '../../images/call.svg';
-import backgroundImage from '../../images/Admin-Login.png';
-import Carousal from '../ReviewCarousal/Carousal';
-import HamburgerMenu from '../Hamburger/HamburgerMenu';
+import admin from '../../images/why.png';
+import FaqAccordian from '../FaqAccordian/FaqAccordian'
 
 export default function Homepage({ data }) {
-
-  // console.log(data, "hhh");
-  // const [imageCache, setImageCache] = useState({});
-  const [page, setPage] = useState(1);
-  const itemsPerPage = 10;
-
-  const backgroundImage = 'https://images.pexels.com/photos/9796251/pexels-photo-9796251.jpeg?auto=compress&cs=tinysrgb&w=600';
+  const [visibleItems, setVisibleItems] = useState(10); 
   const [searchQuery, setSearchQuery] = useState('');
+  const backgroundImage = 'https://images.pexels.com/photos/9796251/pexels-photo-9796251.jpeg?auto=compress&cs=tinysrgb&w=600';
+  const handleLoadMore = () => {
+    setVisibleItems(prev => prev + 10); 
+  };
 
-  // Filter data based on search query
-  const filteredData = data?.filter(item =>
-    item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  // Calculate total pages based on filtered data
-  const totalPages = Math.ceil(filteredData?.length / itemsPerPage);
-
-  const startIndex = (page - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
-  const displayedItems = filteredData?.slice(startIndex, endIndex);
   return (
-    <div className="bg-blue-200  min-h-screen overflow-hidden" >
-
-      <div className=' bg-cover md:h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <header className="py-3 px-6 bg-black mx-3 rounded-b-md">
-          <HamburgerMenu />
-
-        </header>
-
-        <div className='p-2 text-left mt-10'>
-          {/* <h2 className='mt-7 p-5 font-bold text-lg underline'>Trusted Dealer, Rental</h2> */}
-
-          <h2 className="px-1 font-bold text-3xl" data-wow-delay="50ms" data-wow-duration="200ms">
-            Luxury and affordable Car Collection..</h2>
-          <p className="p-1 font-semibold text-l" data-wow-delay="300ms" data-wow-duration="2000ms">
-            Car is where early adopters and innovation seekers find lively
-            imaginative tech before it hits the mainstream.</p>
-          <button className='my-2 rounded-sm p-1 mb-52 bg-red-700'>Go to Listing</button>
+    <div className=" min-h-screen">
+      <div>
+        <div className=' bg-cover h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
+          <div className='p-2 text-left'>
+            <h2 className="px-1 pb-1 font-bold text-3xl" data-wow-delay="50ms" data-wow-duration="200ms">
+              Zero Deposit</h2>
+            <h2 className="px-1 font-bold text-3xl" data-wow-delay="50ms" data-wow-duration="200ms">
+              Unlimited Kilometers</h2>
+            <p className="p-1 font-semibold text-l" data-wow-delay="300ms" data-wow-duration="2000ms">
+            </p>
+            <button className='my-2 rounded-sm p-1 mb-52 bg-red-700'>Go to Listing</button>
+          </div>
         </div>
       </div>
-
-      <div>
-        <div className='text-center mt-9 p-2'>
-          <h2 className="px-3 font-bold text-4xl text-black">Explore all Vehicles</h2>
+      <div className='container mx-auto px-4 md:px-0'>
+        <div className='text-center mt-9'>
+          <h2 className="px-3 font-bold text-3xl text-blue-950 mb-2">Explore Self Drive Car Rentals</h2>
         </div>
-        <div className='mb-3'>
-          {/* <label>jo<FaSearch/></label> */}
-          <FaSearch className='text-red-500 relative left-64 top-6'/>
+        <div className='mb-3 flex items-center justify-center'>
           <input
             placeholder='Search for the cars'
-            className='placeholder-red-300 text-black px-4 py-1 rounded-full bg-gradient-to-r from-blue-700'
+            className='placeholder-black text-black px-4 py-2 rounded-full w-full md:w-auto'
             type='search'
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
           />
-          
+          <FaSearch className='text-blue-500 relative right-7' />
         </div>
-      
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-3 gap-8">
-            {displayedItems?.map((item, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden m-2">
-                <div>
-                  <button className='rounded-sm px-4 py-1 lg:relative bg-red-500 absolute right-4 mt-2 z-10'>{item.manufacture_date}</button>
-                </div>
-                <div className="relative w-full h-72 border-blue-200">
+        <div className='overflow-y-auto h-screen'>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {data.slice(0, visibleItems).map((item, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="relative w-full h-72">
                   <Image
                     src={carphotot}
                     alt="Car"
@@ -94,16 +62,15 @@ export default function Homepage({ data }) {
                     className="rounded-t-lg"
                   />
                 </div>
-                <div className="p-4">
-                  <div className='flex items-baseline justify-between text-xl font-semibold'>
+                <div className="px-4 pt-3">
+                  <div className='flex items-baseline justify-between text-lg font-semibold'>
                     <Link href={`/${item.maker_model}`}>
-                      <p className="text-xl font-semibold text-gray-800 mb-2">{item.maker_model}</p>
+                      <p className=" font-normal text-gray-800 mb-2 cursor-pointer hover:underline">{item.maker_model}</p>
                     </Link>
-                    {/* <h2 className="text-xl font-semibold text-gray-800 mb-2">{item.maker_model}</h2> */}
-                    <p className="text-blue-500 font-bold mb-3">₹{item.price_24_hours * 24}/day</p>
+                    <p className="text-blue-500 font-bold">₹{item.price_24_hours * 24}/day</p>
                   </div>
                   <div className="flex items-center justify-between border-b border-gray-300 pb-3 text-black font-normal text-base">
-                    <div className="flex items-center ">
+                    <div className="flex items-center">
                       <BsFuelPump className="mr-1 text-red-700" />
                       <span>{item.fuel_type}</span>
                     </div>
@@ -117,138 +84,67 @@ export default function Homepage({ data }) {
                     </div>
                   </div>
 
-                  <div className='flex justify-around py-2'>
-
-
-                    <button className='w-16 h-12  flex justify-center text-green-500 items-center gap-1'>
-                      <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'><Image
-                        src={whatsapp}
-                        alt="Car"
-                        // layout="fill"
-                        // objectFit="contain"
-                        // width={100}
-                        height={150}
-                        className="rounded-t-lg object-contain max-w-none"
-                      /></Link>
+                  <div className='flex justify-around'>
+                    <button className='w-14 h-12 flex justify-center text-green-500 items-center gap-1'>
+                      <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'>
+                        <Image
+                          src={whatsapp}
+                          alt="Car"
+                          height={120}
+                          className="rounded-t-lg object-contain max-w-none"
+                        />
+                      </Link>
                     </button>
-                    <div>
-                      <button className=' w-16 h-12 flex justify-center text-blue-500 items-center gap-1'>
+                    <button className='w-14 h-12 flex justify-center text-green-500 items-center gap-1'>
+                      <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'>
                         <Image
                           src={phone}
                           alt="Car"
-                          // layout="fill"
-                          objectFit="contain"
-                          // width={100}
-                          height={150}
-                          sizes='11px'
+                          height={120}
                           className="rounded-t-lg object-contain max-w-none"
                         />
-                      </button>
-                    </div>
+                      </Link>
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
-          <div className="flex justify-center mt-2 items-center">
+        {visibleItems <= data.length && (
+          <div className="text-center mt-4 mb-4">
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
-              onClick={() => setPage(prevPage => Math.max(prevPage - 1, 1))}
-              disabled={page === 1}
+              className="bg-blue-500 text-white px-4 py-2 rounded-full"
+              onClick={handleLoadMore}
             >
-              Prev
-            </button>
-            <span className="text-gray-700">{`Page ${page} of ${totalPages}`}</span>
-            <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-md ml-2"
-              onClick={() => setPage(prevPage => Math.min(prevPage + 1, totalPages))}
-              disabled={page === totalPages}
-            >
-              Next
+              Load more
             </button>
           </div>
-        </div>
+        )}
       </div>
 
-
-      <div className='p-5 bg-gray-100 text-black m-3 rounded'>
-        {/* <h2 className='text-orange-700'>ReviewsSlider </h2> */}
-        <Carousal />
-
+      <div className=''>
+        <Image
+          src={admin}
+          alt="admin"
+          // layout="fill"
+          // objectFit="cover"
+          className="rounded-t-lg"
+        />
+        {/* hiiii */}
       </div>
-      <div className='p-5 bg-gray-100 text-black m-3 rounde shadow-md'>
-        {/* <h2 className='text-orange-700'>ReviewsSlider </h2> */}
-        <h2 className='uppercase p-2'> /// Frequently asked questions</h2>
+
+      <div className='p-1 bg-gray-100 text-black m- rounded shadow-md'>
+        <h2 className='uppercase p-2  text-left font-semibold text-lg'>Frequently asked questions</h2>
         <FaqAccordian />
       </div>
 
-
-      <footer className="flex flex-col bg-gray-800 text-white p-4">
-
-        <div>
-          <h2 className='text-left p-6 text-lg font-bold'>Booking help lines</h2>
-          <div className='flex text-left pl-5 gap-2'>
-            <div className='flex items-center justify-center'>
-              <LuPhoneCall size={40} />
-              <ul className='ml-2'>
-                <li>Telangana, AP</li>
-                <li>9000-0008</li>
-              </ul>
-            </div>
-            <div className='flex items-center justify-center'>
-              <LuPhoneCall size={40} />
-              <ul className='ml-2'>
-                <li>Bangalore</li>
-                <li>9000-000908</li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-        <div className='text-left mt-4 p-4'>
-          <div>
-            <h2 className='font-bold text-lg py-2 underline'>Our Branches</h2>
-            <ul>
-              <li>Medipally</li>
-              <li>Dilshuknagar</li>
-              <li>Medipally</li>
-              <li>Dilshuknagar</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className='font-bold text-lg py-2 underline'>Useful Links</h2>
-            <ul>
-              <li><Link href={'/'}>Blog</Link></li>
-              <li><Link href={'/'}>Contact us</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h2 className='font-bold text-lg pt-2 underline'>Head Office</h2>
-            <ul>
-              <li><h3 className='font-semibold text-base text-blue-500 uppercase'>Location</h3></li>
-              <li><p>Long Drive Cars, Pillar No 129, Main Road, beside Medipally,
-                Medipally, Hyderabad, Telangana 500098
-              </p></li>
-            </ul>
-          </div>
-          <div>
-            <h2 className='font-bold text-lg py-2 underline'>Social media links</h2>
-            <ul className='flex items-start py- gap-3'>
-              {/* <li><h1 className=''>@longdrivecars</h1></li> */}
-              <li className='text-blue-400'><FaFacebook size={20} /></li>
-              <li className='text-blue-400'><FaInstagram size={20} /></li>
-              <li className='text-blue-400'><FaTwitter size={20} /></li>
-              <li className='text-blue-400'><FaYoutube size={20} /></li>
-
-            </ul>
-          </div>
-        </div>
-
-      </footer>
-      <p className='bg-gray-700'>© Long Drive Cars All Rights Reserved.</p>
+      {/* <div className='bg-gray-700 text-white py-2 text-center'>
+        © Self Drive Cars Hyderabad All Rights Reserved.
+      </div> */}
 
     </div>
   );
 }
-// import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaSearch } from 'react-icons/fa';
+
