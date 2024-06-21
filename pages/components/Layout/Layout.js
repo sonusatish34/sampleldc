@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
             <Header />
           </header> */}
             
-            <main className="flex-grow bg-blue-100">{children}</main>
+            <main className="flex-grow">{children}</main>
             <Footer />
         </div>
     );

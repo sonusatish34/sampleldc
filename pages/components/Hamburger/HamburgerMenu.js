@@ -1,46 +1,73 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../../images/sdc.png'
-import logo2 from '../../images/newlog.png'
+import logo from '../../images/sdc.png';
+import logo2 from '../../images/newlog.png';
 import { LuPhoneCall } from 'react-icons/lu';
+import styles from './HamburgerMenu.module.css'
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <div>
-      <mainhead >
-        <div className='bg-orange-600 p-1 w-screen'>
-          <div className="flex space-x-6 animate-loop-scroll">
-            <span className='text-orange-600' >.......</span>
-            <p>Zero Deposit </p>
-            <p>Unlimited Kilometers</p>
+      <mainhead>
+        <div className="bg-orange-600 p-1 ">
+        </div>
+        <div className={styles.scrollContainer}>
+          <div className={styles.scrollText}>
+            This is scrolling text.<div></div>
           </div>
         </div>
+
       </mainhead>
-      <subhead >
-        <div className=' bg-gray-800 w-screen flex justify-between text-white text-xl p-2 '>
-          <h2>For Booking Help</h2>
-          <div className='flex items-center gap-1'>
+      <subhead>
+        <div className="bg-gray-800 flex justify-between  text-white text-base p-2">
+          <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
+          <div className="flex items-center gap-1">
             <h2><LuPhoneCall size={15} /></h2>
-            <h2> 9000-478-478</h2>
+            <h2 className='lg:text-2xl lg:font-bold'>9000-478-478</h2>
           </div>
         </div>
       </subhead>
 
-      <div className="flex items-center justify-between bg-white p-3 border-2 border-orange-200">
-        <div className='flex justify-end'>
+      <div className="flex items-center justify-between bg-white p-3 border-2 border-orange-200 lg:h-20">
+        <div className="flex justify-end">
           <Image
             src={logo}
             alt="carrr"
-            width={150}
+            width={200}
             height={100}
           />
         </div>
         <div>
           <button
-            className="block relative right-1 bottom-0 text-orange-400 "
+            ref={buttonRef}
+            className="lg:hidden block relative right-1 bottom-0 text-orange-400"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -58,47 +85,44 @@ const HamburgerMenu = () => {
           </button>
         </div>
 
-        <nav className={`${isOpen ? 'block overflow-auto ' : 'overflow-hidden '}  w-2/3 h-screen absolute top-0 left-0  z-10 transition-transform  delay-4000  ease-out bg-opacity-95 bg-blue-400`} style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}>
-
+        <nav
+          ref={menuRef}
+          className={`${isOpen ? 'block overflow-auto' : 'overflow-hidden'} w-2/3 h-screen absolute top-0 left-0 z-10 transition-transform delay-4000 ease-out bg-opacity-95 bg-blue-400`}
+          style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}
+        >
           <Image
-            className='w-16 h-16 ml-9 mt-3'
+            className="w-16 h-16 ml-9 mt-3"
             src={logo2}
             alt="carrr"
             width={129}
             height={130}
           />
-          <ul className='ml-4 mt-5 pl-5 pt-4 font-semibold flex flex-col gap-3 bg-s items-start text-white'>
-            <li className='underline w-32 text-start'><Link href={'/'}>Home</Link></li>
-            <li className='underline w-32 text-start'><Link href={''}>Contact</Link></li>
-            <li className='underline w-32 text-start'><Link href={''}>Blog</Link></li>
-            <li className='underline w-32 text-start'><Link href={''}>Reviews</Link></li>
+          <ul className="ml-4 mt-5 pl-5 pt-4 font-semibold flex flex-col gap-3 bg-s items-start text-white">
+            <li className="underline w-32 text-start"><Link href={'/'}>Home</Link></li>
+            <li className="underline w-32 text-start"><Link href={''}>Contact</Link></li>
+            <li className="underline w-32 text-start"><Link href={''}>Blog</Link></li>
+            <li className="underline w-32 text-start"><Link href={''}>Reviews</Link></li>
           </ul>
-          <div className='flex flex-col text-left gap-2 p-6 justify-center mt-32 text-white'>
-            <p>For Booking Help Call </p>
-            <div className='flex items-center text-white'>
-              {/* <LuPhoneCall size={40} /> */}
-              <ul className=''>
+          <div className="flex flex-col text-left gap-2 p-6 justify-center mt-32 text-white">
+            <p>For Booking Help Call</p>
+            <div className="flex items-center text-white">
+              <ul className="">
                 <li>Telangana, AP</li>
-                <li className='font-bold text-2xl'>9000-478-478</li>
+                <li className="font-bold text-2xl">9000-478-478</li>
               </ul>
             </div>
-            <div className='flex items-center text-white'>
-              {/* <LuPhoneCall size={40} /> */}
-              <ul className=''>
+            <div className="flex items-center text-white">
+              <ul className="">
                 <li>Bangalore</li>
-                <li className='font-bold text-2xl'>912-912-25-25</li>
+                <li className="font-bold text-2xl">912-912-25-25</li>
               </ul>
             </div>
-
           </div>
         </nav>
-
-        {/* <button className='text-orange-500 mx-8' onClick={()=>{
-        setIsOpen(!isOpen)
-      }}>close</button> */}
       </div>
     </div>
   );
 };
 
 export default HamburgerMenu;
+
