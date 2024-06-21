@@ -20,8 +20,8 @@ import admin from '../../images/why.png';
 import FaqAccordian from '../FaqAccordian/FaqAccordian'
 
 export default function Homepage({ data }) {
-  console.log(data, "data home");
-  data.sort((a, b) => a.maker_model.localeCompare(b.maker_model))
+  // console.log(data, "data home");
+  // data.sort((a, b) => a.maker_model.localeCompare(b.maker_model))
 
   const [visibleItems, setVisibleItems] = useState(9);
   const [searchQuery, setSearchQuery] = useState('');
