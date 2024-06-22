@@ -32,7 +32,7 @@ export default function Homepage({ data }) {
     return str.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls', 'https://d12t7i0duidj85.cloudfront.net');
   };
 
-  const filteredData = data.filter(item =>
+  const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -145,7 +145,7 @@ export default function Homepage({ data }) {
         </div>
         <div className='flex items-center justify-center'>
           <div className="flex flex-wrap gap-x-8 gap-y-8 items-center justify-center lg:max-w-5xl">
-            {filteredData.slice(0, visibleItems).map((item, index) => (
+            {filteredData?.slice(0, visibleItems).map((item, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col w-72 h-96 hover:scale-105">
                 <div className="relative h-64">
                   <Image
@@ -205,7 +205,7 @@ export default function Homepage({ data }) {
             ))}
           </div>
         </div>
-        {visibleItems < filteredData.length && (
+        {visibleItems < filteredData?.length && (
            <div className="text-center my-16 mb-10">
            <button
              className="bg-blue-500 text-lg font-bold text-white px-9 py-2 rounded-full"
