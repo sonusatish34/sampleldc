@@ -36,14 +36,13 @@ const HamburgerMenu = () => {
   return (
     <div>
       <mainhead>
-        <div className="bg-orange-600 p-1 ">
+        <div className="p-1 ">
         </div>
         <div className={styles.scrollContainer}>
           <div className={styles.scrollText}>
-            This is scrolling text.<div></div>
+            Zero Deposit Unlimited Kilometers<div></div>
           </div>
         </div>
-
       </mainhead>
       <subhead>
         <div className="bg-gray-800 flex justify-between  text-white text-base p-2">

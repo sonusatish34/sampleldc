@@ -7,21 +7,21 @@ import { IoLocationSharp } from "react-icons/io5";
 
 function Footer() {
     return (
-        <div className='px-14'>
-            <footer className="flex gap-x-64 bg-gray-800 text-white p-4">
+        <div className='px-8 bg-gray-800'>
+            <footer className="flex flex-wrap md:gap-x-24 justify-between gap-y-4 xl:gap-x-64 bg-gray-800 text-white p-4">
                 <div>
                     <h2 className='text-left pl-4 pb-3 text-lg font-bold'>Booking help lines</h2>
-                    <div className='flex flex-col text-left pl-2 gap-2'>
+                    <div className='fl  ex flex-col text-left gap-2'>
                         <div className='flex items-center'>
                             <ul className='ml-2'>
                                 <li>Telangana, AP</li>
-                                <li className=' text-xl'><span><FiPhone size={20} className='text-red-600 inline'/></span> 9000-478-478</li>
+                                <li className=' text-xl'><span><FiPhone size={20} className='text-red-600 inline' /></span> 9000-478-478</li>
                             </ul>
                         </div>
                         <div className='flex items-center'>
                             <ul className='ml-2'>
                                 <li>Bangalore</li>
-                                <li className=' text-xl'><span><FiPhone size={20} className='text-red-600 inline'/></span> 912-912-25-25</li>
+                                <li className=' text-xl'><span><FiPhone size={20} className='text-red-600 inline' /></span> 912-912-25-25</li>
                             </ul>
                         </div>
                     </div>
@@ -39,23 +39,31 @@ function Footer() {
                 <div className='pb-2'>
                     <h2 className='font-bold text-lg'>Head Office</h2>
                     <ul>
-                       
-                        <li className='w-48'> <span><IoLocationSharp size={20} className='text-red-600 inline'/></span> <p className='inline'> Long Drive Cars, Pillar No 129, Main Road, beside Medipally,
+
+                        <li className='w-48'> <span><IoLocationSharp size={20} className='text-red-600 inline' /></span> <p className='inline'> Long Drive Cars, Pillar No 129, Main Road, beside Medipally,
                             Medipally, Hyderabad, Telangana 500098
                         </p></li>
                     </ul>
                 </div>
             </footer>
             <div>
-                    <ul className='flex items-start py-3 gap-5'>
-                        {/* <li><h1 className=''>@longdrivecars</h1></li> */}
-                        <li className='text-blue-400'><FaFacebook size={35} /></li>
-                        <li className='text-blue-400'><FaInstagram size={35} /></li>
-                        <li className='text-blue-400'><FaTwitter size={35} /></li>
-                        <li className='text-blue-400'><FaYoutube size={35} /></li>
+                <ul className='flex flex-wrap items-center justify-between py-5 gap-5 text-white flex-grow'>
+                    <li>© selfdrivecars all rights reserved</li>
+                    <li className='flex gap-6'>
 
-                    </ul>
-                </div>
+                    <p className='hover:text-blue-500'><FaFacebook size={35} /></p>
+                    <p className='hover:text-pink-500'><FaInstagram size={35} /></p>
+                    <p className='hover:text-blue-300'><FaTwitter size={35} /></p>
+                    <p className='hover:text-red-500'><FaYoutube size={35} /></p>
+                    </li>
+                    <li className='flex gap-5 font-medium text-lg'>
+                        <p className='hover:text-blue-500 cursor-pointer'>Privacy & Policy</p>
+                        <p className='hover:text-blue-500 cursor-pointer'>Blog</p>
+                        <p className='hover:text-blue-500 cursor-pointer'> Policy</p>
+                    </li>
+
+                </ul>
+            </div>
         </div>
     )
 }

@@ -1,48 +1,21 @@
 .scrollContainer {
-  border: 3px solid black;
   border-radius: 5px;
   overflow: hidden;
+  white-space: nowrap; /* Prevent line breaks */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 .scrollText {
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-
-  -moz-animation: my-animation 15s linear infinite;
-  -webkit-animation: my-animation 15s linear infinite;
-  animation: my-animation 15s linear infinite;
+  display: inline-block; /* Ensure the text is inline to scroll */
+  padding-left: 100%; /* Start from the right */
+  animation: scroll-text 10s linear infinite; /* Infinite scrolling animation */
 }
 
-/* for Firefox */
-@-moz-keyframes my-animation {
+@keyframes scroll-text {
   from {
-    -moz-transform: translateX(100%);
+    transform: translateX(100%); /* Start from the right */
   }
   to {
-    -moz-transform: translateX(-100%);
-  }
-}
-
-/* for Chrome */
-@-webkit-keyframes my-animation {
-  from {
-    -webkit-transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* End at the left */
   }
 }

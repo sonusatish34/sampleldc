@@ -40,13 +40,13 @@ export default function Homepage({ data }) {
     <div className=" min-h-screen">
       <div>
         <div className='h-screen bg-cover bg-no-repeat bg-center ' style={{ backgroundImage: `url(${backgroundImage})` }}>
-          <div className='pl-20 pt-72 text-left'>
-            <h2 className="px-1 pb-3 font-bold text-5xl" data-wow-delay="50ms" data-wow-duration="200ms">
+          <div className='md:pl-20 md:pt-72 pt-10 text-left'>
+            <h2 className="px-1 pb-3 font-bold md:text-5xl" data-wow-delay="50ms" data-wow-duration="200ms">
               Zero Deposit</h2>
-            <h2 className="px-1 pb-7 font-bold text-4xl" data-wow-delay="50ms" data-wow-duration="200ms">
+            <h2 className="px-1 pb-7 font-bold md:text-4xl" data-wow-delay="50ms" data-wow-duration="200ms">
               Unlimited Kilometers</h2>
             
-            <button className='my-2 rounded-lg p-2 mb-52 bg-blue-700 text-white text-lg'>Go to Listing</button>
+            <button className='my-2 rounded-lg p-2 mb-52 bg-blue-700 text-white md:text-lg'>Go to Listing</button>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function Homepage({ data }) {
           <p className='py-3 text-7xl'>Browse By Brand </p>
 
         </div>
-        <div className='brands flex justify-center items-center flex-wrap p-6 gap-3 w-max container'>
+        <div className='brands flex justify-center items-center flex-wrap p-6 gap-3 lg:w-max container'>
           <div className='p-2 bg-white rounded-sm w-40 h-52 flex justify-center items-center flex-col hover:scale-110 hover:border border-blue-300 '>
             <Image
               src={mahindra}
