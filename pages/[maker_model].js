@@ -37,7 +37,7 @@ const CarDetails = () => {
     }
   }, [maker_model]);
   function replaceText(str) {
-    let newstr = str.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls', 'https://d12t7i0duidj85.cloudfront.net');
+    let newstr = str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls', 'https://d12t7i0duidj85.cloudfront.net');
     return newstr
   }
   return (

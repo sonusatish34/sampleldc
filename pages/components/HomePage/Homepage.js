@@ -29,7 +29,7 @@ export default function Homepage({ data }) {
   };
 
   const replaceText = (str) => {
-    return str.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls', 'https://d12t7i0duidj85.cloudfront.net');
+    return str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls', 'https://d12t7i0duidj85.cloudfront.net');
   };
 
   const filteredData = data?.filter(item =>
@@ -54,9 +54,9 @@ export default function Homepage({ data }) {
       <div className='bg-[#f2f5fb] flex flex-col justify-center items-center gap-y-6 py-20'>
         <div>
           <p className='underline text-red-700 font-bold text-xl'>FIND YOUR CARS BY BRAND</p>
-          <p className='py-3 text-7xl'>Browse By Brand</p>
+          <p className='py-3 text-7xl text-black'>Browse By Brand</p>
         </div>
-        <div className='brands flex justify-center items-center flex-wrap p-6 gap-3 lg:w-max container'>
+        <div className='brands flex justify-center items-center flex-wrap p-6 gap-3 text-black lg:w-max container'>
           <div className='p-2 bg-white rounded-sm w-40 h-52 flex justify-center items-center flex-col hover:scale-110 hover:border border-blue-300'>
             <Image
               src={mahindra}
@@ -129,21 +129,21 @@ export default function Homepage({ data }) {
           </div>
         </div>
       </div>
-      <div className='container mx-auto px-4 md:px-0'>
-        <div className='text-center mt-16'>
-          <h2 className="px-3 font-bold text-2xl text-blue-950 mb-2 lg:text-5xl lg:mb-9">Explore Self Drive Car Rentals</h2>
+      <div className='container mx-auto px-4 md:px-0 bg-white'>
+        <div className='text-center'>
+          <h2 className="px-3 font-bold text-2xl pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9">Explore Self Drive Car Rentals</h2>
         </div>
         <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center'>
           <input
             placeholder='Search for the cars'
-            className='placeholder-black text-black px-4 py-3 rounded-full w-full max-w-56 md:max-w-96 lg:max-w-2xl'
+            className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full max-w-56 md:max-w-96 lg:max-w-2xl'
             type='search'
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
           />
           <FaSearch size={25} className='text-blue-500 relative right-14 lg:right-20 md:right-14' />
         </div>
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center py-6'>
           <div className="flex flex-wrap gap-x-8 gap-y-8 items-center justify-center lg:max-w-5xl">
             {filteredData?.slice(0, visibleItems).map((item, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col w-72 h-96 hover:scale-105">
@@ -190,7 +190,7 @@ export default function Homepage({ data }) {
                       </Link>
                     </button>
                     <button className='w-14 h-12 flex justify-center text-green-500 items-center gap-1'>
-                      <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'>
+                      <Link href="tel:7989030741" target='_blank'>
                         <Image
                           src={phone}
                           alt="Car"
@@ -206,7 +206,7 @@ export default function Homepage({ data }) {
           </div>
         </div>
         {visibleItems < filteredData?.length && (
-           <div className="text-center my-16 mb-10">
+           <div className="text-center pb-10">
            <button
              className="bg-blue-500 text-lg font-bold text-white px-9 py-2 rounded-full"
              onClick={handleLoadMore}

@@ -51,10 +51,10 @@ function Footer() {
                     <li>© selfdrivecars all rights reserved</li>
                     <li className='flex gap-6'>
 
-                    <p className='hover:text-blue-500'><FaFacebook size={35} /></p>
-                    <p className='hover:text-pink-500'><FaInstagram size={35} /></p>
-                    <p className='hover:text-blue-300'><FaTwitter size={35} /></p>
-                    <p className='hover:text-red-500'><FaYoutube size={35} /></p>
+                    <p className='hover:text-blue-500 cursor-pointer'><FaFacebook size={35} /></p>
+                    <p className='hover:text-pink-500 cursor-pointer'><FaInstagram size={35} /></p>
+                    <p className='hover:text-blue-300 cursor-pointer'><FaTwitter size={35} /></p>
+                    <p className='hover:text-red-500 cursor-pointer'><FaYoutube size={35} /></p>
                     </li>
                     <li className='flex gap-5 font-medium text-lg'>
                         <p className='hover:text-blue-500 cursor-pointer'>Privacy & Policy</p>

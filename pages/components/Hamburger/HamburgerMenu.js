@@ -39,7 +39,7 @@ const HamburgerMenu = () => {
         <div className="p-1 ">
         </div>
         <div className={styles.scrollContainer}>
-          <div className={styles.scrollText}>
+          <div className={`${styles.scrollText} p-1 text-xl`}>
             Zero Deposit Unlimited Kilometers<div></div>
           </div>
         </div>
