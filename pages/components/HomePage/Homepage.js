@@ -40,11 +40,11 @@ export default function Homepage({ data }) {
     <div className="min-h-screen">
       <div>
         <div className='h-screen bg-cover bg-no-repeat bg-center' style={{ backgroundImage: `url(${backgroundImage})` }}>
-          <div className='pl-20  pt-10 text-left'>
-            <h2 className="px-1 pb-3 font-bold md:text-5xl" data-wow-delay="50ms" data-wow-duration="200ms">
+          <div className='pl-20 md:pl-2 pt-72 text-left'>
+            <h2 className="px-1 pb-3 font-bold lg:text-5xl md:text-2xl" data-wow-delay="50ms" data-wow-duration="200ms">
               Zero Deposit
             </h2>
-            <h2 className="px-1 pb-7 font-bold md:text-4xl" data-wow-delay="50ms" data-wow-duration="200ms">
+            <h2 className="px-1 pb-7 font-bold lg:text-4xl md:text-2xl" data-wow-delay="50ms" data-wow-duration="200ms">
               Unlimited Kilometers
             </h2>
             <button className='my-2 rounded-lg p-2 mb-52 bg-blue-700 text-white md:text-lg'>Go to Listing</button>
