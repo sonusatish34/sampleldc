@@ -180,7 +180,7 @@ export default function Homepage({ data }) {
 
                   <div className='flex justify-around gap-2'>
                     <button className='w-14 h-12 flex justify-center text-green-500 items-center gap-1'>
-                      <Link href="https://api.whatsapp.com/send?phone=8886161974" target='_blank'>
+                      <Link href="https://api.whatsapp.com/send?phone=" target='_blank'>
                         <Image
                           src={whatsapp}
                           alt="Car"
