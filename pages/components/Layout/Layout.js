@@ -3,6 +3,7 @@ import Header from '../Hamburger/HamburgerMenu'
 import Footer from '../Footer/Footer';
 import Image from 'next/image';
 import logo from '../../images/newlog.png';
+<meta property="og:title" content="Title Here" />
 
 const Layout = ({ children }) => {
     const backgroundImage = 'https://images.pexels.com/photos/9796251/pexels-photo-9796251.jpeg?auto=compress&cs=tinysrgb&w=600';
