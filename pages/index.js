@@ -9,9 +9,7 @@ import Feech from "./Feech";
 
 // const inter = Inter({ subsets: ["latin"] });
 import Head from "next/head";
-import Head from "next/head";
 
-export default function Home({ items, cars }) {
 export default function Home({ items, cars }) {
   // console.log(cars,"carrrr");
   return (
